@@ -42,7 +42,9 @@ Some common use cases:
 Example
 =======
 
-This is a simple Model. ::
+This is a simple Model. 
+
+..code-block::python
 
   >>> from schematics.models import Model
   >>> from schematics.types import StringType, URLType
@@ -55,13 +57,17 @@ This is a simple Model. ::
   >>> person.name
   u'Joe Strummer'
 
-Serializing the data to JSON. ::
+Serializing the data to JSON. 
+
+..code-block::python
 
   >>> import json
   >>> json.dumps(person.to_primitive())
   {"name": "Joe Strummer", "website": "http://soundcloud.com/joestrummer"}
 
-Let's try validating without a name value, since it's required. ::
+Let's try validating without a name value, since it's required. 
+
+..code-block::python
 
   >>> person = Person()
   >>> person.website = 'http://www.amontobin.com/'
@@ -72,7 +78,9 @@ Let's try validating without a name value, since it's required. ::
       raise ModelValidationError(e.messages)
   schematics.exceptions.ModelValidationError: {'name': [u'This field is required.']}
 
-Add the field and validation passes::
+Add the field and validation passes
+
+..code-block::python
 
   >>> person = Person()
   >>> person.name = 'Amon Tobin'
